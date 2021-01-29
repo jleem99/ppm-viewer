@@ -6,7 +6,7 @@
 /*   By: jleem <jleem@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 06:39:33 by jleem             #+#    #+#             */
-/*   Updated: 2021/01/29 09:56:27 by jleem            ###   ########.fr       */
+/*   Updated: 2021/01/29 10:34:57 by jleem            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,18 @@ void	render(t_mlx_global *global, int fd)
 	char	*line;
 	char	**split;
 	int		retcode;
+	int		i;
 
 	while ((retcode = get_next_line(fd, &line)) > 0)
 	{
 		if ((split = ft_split(line, ' ')))
 		{
-			if (split[0] && split[1] && split[2])
-				render_pixel(global, ft_atoi(split[0]), ft_atoi(split[1]), ft_atoi(split[2]));
+			i = 0;
+			while (split[i] && split[i + 1] && split[i + 2])
+			{
+				render_pixel(global, ft_atoi(split[i]), ft_atoi(split[i + 1]), ft_atoi(split[i + 2]));
+				i += 3;
+			}
 			ft_split_free(split);
 		}
 		free(line);
