@@ -1,0 +1,6 @@
+[submodule "42seoul-get_next_line"]
+	path = 42seoul-get_next_line
+	url = git@github.com:kch79624/42seoul-get_next_line.git
+[submodule "42seoul-Libft"]
+	path = 42seoul-Libft
+	url = git@github.com:kch79624/42seoul-Libft.git
